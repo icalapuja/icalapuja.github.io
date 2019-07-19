@@ -53,20 +53,9 @@ var scrollDirection, $ = jQuery;
 }(jQuery));
 
 $(document).ready(function($){
+	loadTemplates();
 
 	var sklSlider = $("#skillSlider");
-
-	
-	// sklSlider.owlCarousel({
-	// 	slideSpeed: 400,
-	// 	items : 6,
-	// 	itemsDesktop : false,
-	// 	itemsDesktopSmall : [991, 8],
-	// 	itemsTablet: [768, 8],
-	// 	itemsTabletSmall: [600, 6],
-	// 	itemsMobile : [479, 4],
-	// 	pagination : false
-	// });
 
 	sklSlider.owlCarousel({
 		slideSpeed: 400,
@@ -197,9 +186,6 @@ $(document).ready(function($){
 			tmoData.next();
 		}
 	});
-
-
-
 
 
 	$('.menu-smooth-scroll').scrollingTo({
@@ -781,3 +767,60 @@ $('#contactForm').on('submit', function(e){
 		}, 1000);
 	});
 });
+
+
+function loadTemplates(){
+	var skills = [{title:'PMP', percent:60},
+					{title:'Scrum', percent:80},
+					{title:'DevOps', percent:60},
+					{title:'BPM', percent:70},
+					{title:'ITIl', percent:70},
+					{title:'Kanban', percent:80},
+					{title:'Android', percent:70},
+					{title:'.Net', percent:75},
+					{title:'Java', percent:80},
+					{title:'PHP', percent:85},
+					{title:'HTML', percent:95},
+					{title:'CSS', percent:90},
+					{title:'JavaScript', percent:70},
+					{title:'Python', percent:60},
+					{title:'Ruby', percent:50},
+					{title:'VB6', percent:95},
+					{title:'Power Builder', percent:75},
+					{title:'Informix', percent:90},
+					{title:'Angular', percent:55},
+					{title:'Polymer', percent:70},
+					{title:'React', percent:65},
+					{title:'Backbone', percent:95},
+					{title:'Vue', percent:70},
+					{title:'Laravel', percent:90},
+					{title:'CodeIgniter', percent:80},
+					{title:'SpringMVC', percent:70},
+					{title:'Ionic', percent:60},
+					{title:'Oracle', percent:70},
+					{title:'SQLServer', percent:60},
+					{title:'MySQL', percent:90},
+					{title:'Firebase', percent:80},
+					{title:'MongoDB', percent:60},
+					{title:'Redis', percent:40}
+				];
+
+	var experiences = [{company:'MDP Consulting',job:'Systems Consultant',date:'April 2016 - Present',description:'Evolutionary development of La Positiva applications. Corrective development of La Positiva applications. Technological consultant of the Software Factory team at La Positiva.',image:'images/experience/mdp.jpg'},
+						{company:'Metrica Andina',job:'Systems Consultant',date:'June 2014 - March 2016',description:'Management of the problem management team at La Positiva Seguros. Optimization of applications of La Positiva.',image:'images/experience/metrica.png'},
+						{company:'Andean Systems',job:'Systems Consultant',date:'October 2013 - May 2014',description:'Implementation and management of the problem management team at La Positiva Seguros. Optimization of applications of La Positiva.',image:'images/experience/andean.png'},
+						{company:'Supreme Court of Peru',job:'Senior Developer',date:'August 2011 - September 2013',description:'Leadership in systems development projects. Functional analysis of the requirements. Adaptations of the applications of the Computer Management.',image:'images/experience/pj.jpg'},
+						{company:'TGestiona',job:'Senior Developer',date:'July 2008 - June 2011',description:'Leadership in systems development projects. Functional analysis of the requirements. Senior development of Movistar TV applications.',image:'images/experience/tgestiona.jpg'},
+						{company:'Bright Solutions',job:'Developer',date:'September 2007 - July 2008',description:'Corrective and evolutionary development of the HR modules and production of the company ERP.',image:'http://placehold.it/300x280'},
+						{company:'Arellano Marketing',job:'Developer',date:'January 2007 - September 2007',description:'Development of the Evolutionary and Corrective processes of the PyP system (Proposals and Projects) in the modules of: Project Management, Payroll, Time Control.',image:'images/experience/arellano.png'}
+						];
+
+	var educations = [{place:'UTP University',grade:'System Engenier Student',date:'2016 - Present',description:'Student of Systems Engineering of the modality for people who work (CGT), with averages that go from the upper third to the tenth higher.',image:'images/education/utp.jpg'},
+						{place:'San Isidro Institute',grade:'Computer Technician',date:'2001 - 2003',description:'Graduate in the computer and computer science technical career, with outstanding averages in the subjects related to the technological career.',image:'images/education/isi.jpg'},
+						{place:'Hight School',grade:'San Luis Gonzaga College',date:'1996 - 2000',description:'Since high school I have taken computer workshops that allowed me to form my vocation in the branch of computer science, participating as a speaker of the office tools in science fairs.',image:'images/education/slg.jpg'}
+					];
+	
+	$("#skillSlider").html(Mustache.to_html($("#template_skills").html(),{"skills": skills}));
+	$("#experienceSlider").html(Mustache.to_html($("#template_experiences").html(),{"experiences": experiences}));
+	$("#educationSlider").html(Mustache.to_html($("#template_educations").html(),{"educations": educations}));
+}
+
